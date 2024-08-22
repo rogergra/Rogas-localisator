@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Localisation de Numéro de Téléphone</h1>
+<form method="post">
+    <input type="text" name="phone_number" placeholder="Entrez le numéro de téléphone" required>
+    <button type="submit">Localiser</button>
+</form>
+{% endblock %}
