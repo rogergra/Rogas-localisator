@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Result{% endblock %}
+
+{% block content %}
+<h1>Résultats de Localisation</h1>
+{% if result.error %}
+    <p>{{ result.error }}</p>
+    <a href="{{ url_for('index') }}">Faire une autre recherche</a>
+{% else %}
+    <ul>
+        <li>Numéro : {{ result.number }}</li>
+        <li>Format local : {{ result.local_format }}</li>
+        <li>Format international : {{ result.international_format }}</li>
+        <li>Préfixe du pays : {{ result.country_prefix }}</li>
+        <li>Code du pays : {{ result.country_code }}</li>
+        <li>Nom du pays : {{ result.country_name }}</li>
+        <li>Localisation : {{ result.location }}</li>
+        <li>Opérateur : {{ result.carrier }}</li>
+        <li>Type de ligne : {{ result.line_type }}</li>
+    </ul>
+    <a href="{{ url_for('index') }}">Faire une autre recherche</a>
+{% endif %}
+{% endblock %}
