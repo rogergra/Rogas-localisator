@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localisation</title>
+    <style>
+        /* Général */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* En-tête */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        header .signature {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 1rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #dcdcdc;
+        }
+
+        /* Contenu principal */
+        main {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            max-width: 500px;
+            width: 100%;
+            margin-bottom: 2rem;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        form input, form button {
+            width: calc(100% - 2rem);
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Résultats */
+        div {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            max-width: 500px;
+            width: 100%;
+            margin-bottom: 2rem;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        div p {
+            margin: 0.5rem 0;
+        }
+
+        /* Erreur */
+        #error {
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Localisation de Numéro</h1>
+        <div class="signature">Rogãs - Créateur</div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li><a href="{{ url_for('logout') }}">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form method="post">
+            <input type="text" name="phone_number" placeholder="Entrez le numéro de téléphone" required>
+            <button type="submit">Localiser</button>
+        <!--</form>
+        {% if result %}
+            <div>
+                <h2>Résultats :</h2>
+                <p>Numéro: {{ result.number }}</p>
+                <p>Format local: {{ result.local_format }}</p>
+                <p>Format international: {{ result.international_format }}</p>
+                <p>Préfixe du pays: {{ result.country_prefix }}</p>
+                <p>Code du pays: {{ result.country_code }}</p>
+                <p>Nom du pays: {{ result.country_name }}</p>
+                <p>Localisation: {{ result.location }}</p>
+                <p>Opérateur: {{ result.carrier }}</p>
+                <p>Type de ligne: {{ result.line_type }}</p>
+            </div>
+        {% elif error %}
+            <div id="error">
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}-->
+    </main>
+    <footer>
+        <p>&copy; 2024 Rogãs. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

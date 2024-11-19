@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats de Localisation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Ajout du CSS en ligne pour la démonstration */
+        body, h1, ul, li, p, a {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            z-index: 1000;
+        }
+
+        header .signature {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        main {
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 130px); /* Ajuster en fonction de la hauteur du header et du footer */
+        }
+
+        .result-card, .error-message {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            max-width: 600px;
+            width: 100%;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .result-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .result-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .error-message {
+            background: #ffdddd;
+            border-left: 5px solid #f44336;
+            padding: 1rem;
+            border-radius: 5px;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Résultats de Localisation</h1>
+        <div class="signature">Rogãs - Créateur</div>
+    </header>
+    <main>
+        {% if result %}
+            <!-- Bloc pour afficher les résultats -->
+            <div class="result-card">
+                <ul>
+                    <li><strong>Numéro :</strong> {{ result.number }}</li>
+                    <li><strong>Format local :</strong> {{ result.local_format }}</li>
+                    <li><strong>Format international :</strong> {{ result.international_format }}</li>
+                    <li><strong>Préfixe du pays :</strong> {{ result.country_prefix }}</li>
+                    <li><strong>Code du pays :</strong> {{ result.country_code }}</li>
+                    <li><strong>Nom du pays :</strong> {{ result.country_name }}</li>
+                    <li><strong>Localisation :</strong> {{ result.location }}</li>
+                    <li><strong>Opérateur :</strong> {{ result.carrier }}</li>
+                    <li><strong>Type de ligne :</strong> {{ result.line_type }}</li>
+                </ul>
+                <a href="{{ url_for('index') }}" class="btn">Faire une autre recherche</a>
+            </div>
+        {% elif error %}
+            <!-- Bloc pour afficher les messages d'erreur -->
+            <div class="error-message">
+                <p>Erreur : {{ error }}</p>
+                <a href="{{ url_for('index') }}" class="btn">Faire une autre recherche</a>
+            </div>
+        {% endif %}
+    </main>
+    <footer>
+        &copy; 2024 Rogãs
+    </footer>
+</body>
+</html>
