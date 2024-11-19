@@ -42,4 +42,5 @@ Rogas-Localisator est un outil de localisation de numéros de téléphone dével
 
 Ce projet est sous licence MIT.
 ```
+Developed by ## ROGAS_TECH ---rogashack@gmail.com
 
