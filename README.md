@@ -5,7 +5,7 @@ un site web pour localiser les numero de telephone
 
 Voici un exemple de fichier `README.md` très bref pour votre projet **Rogas-Localisator** :
 
-```markdown
+
 # Rogas-Localisator
 
 Rogas-Localisator est un outil de localisation de numéros de téléphone développé avec Python et Flask. Il permet de valider un numéro de téléphone et d'afficher des informations détaillées, telles que le format local et international, le pays, l'opérateur, et le type de ligne.
